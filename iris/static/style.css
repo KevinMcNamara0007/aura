@@ -1,0 +1,811 @@
+
+:root {
+    --searchbar-border-color: #9d9d9d;
+    --main-button-hover-color: rgb(28, 58, 195);
+    --searchbar-icon-color: #eaeaea;
+    --default-text: #eaeaea;
+    --button-border-color: #9d9d9d;
+    --button-hover-color: rgb(28, 58, 195);
+    --button-icon-color: #eaeaea;
+    --button-text-color: #ffffff;
+  }
+  
+/* Add custom font styles here, for example: */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+/* General resets and box sizing */
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles for HTML and body */
+html, body, #root, .app {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #000203;
+}
+
+/* Main body styles */
+.body {
+    width: 100%;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Open Sans', sans-serif; /* Removed the duplicate font-family declaration */
+    font-weight: 400;
+    font-size: 16px;
+    background-color: #605f5f;
+    color: #f7f8fa;
+    padding-bottom: 80px; 
+}
+
+/* Empty container */
+.mainContainer {
+}
+
+.video-container {
+    width: 100%;
+    height: 20vh; /* 20% of the viewport height */
+    overflow: hidden; /* Ensures no scroll bars */
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Covers the area, cropping where necessary */
+    margin-bottom: 0; /* Ensure there's no space below the video */
+}
+
+/* Styling for the hero container */
+.heroContainer {
+    background: linear-gradient(180deg, #00477b 0%, #1272d3 100%);
+    padding: 72px 0;
+    position: relative;
+}
+
+/* Content inside the hero container */
+.heroContent {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    width: fit-content;
+    margin: 0 auto;
+    color: rgb(117, 115, 115);
+}
+
+/* Input container styling */
+.inputContainer {
+    z-index: 1001; /* Higher than the background but below other overlaying elements */
+    display: flex; /* Ensures the children are in a row */
+    align-items: center; /* Centers children vertically */
+    justify-content: center; /* Centers children horizontally */
+    padding: 18px 24px;
+    margin-bottom: 24px;
+    background: #080808;
+}
+
+.inputContainer .description {
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 10px;
+}
+
+.inputContainer form {
+    padding-top: 0;
+    border-radius: 999px;
+    width: 100%;
+    z-index: 50;
+  }
+
+  form input#instructions {
+    flex: 1;
+    min-width: 400px;
+    border: 1px solid var(--searchbar-border-color);
+    border-right: none;
+    border-top-left-radius: 999px;
+    border-bottom-left-radius: 999px;
+    background: transparent;
+    color: navy;
+    z-index: 60;
+  }
+
+  form button.notes,
+  .inputContainer form label.custom-file-upload {
+    border-top: 1px solid var(--searchbar-border-color) !important;
+    border-bottom: 1px solid var(--searchbar-border-color) !important;
+    background: transparent;
+  }
+
+.inputContainer form img {
+    height: 25px;
+    width: 25px;
+    z-index: 1;
+}
+
+.inputContainer form .clipsvg {
+    position: relative;
+    top: 5px;
+    z-index: 1;
+}
+
+.inputContainer form input[type="text"] {
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    padding-left: 10px;
+    height: 50px;
+    width: 70%;
+    border-top: 2px solid #1c1c1c;
+    border-bottom: 2px solid #1c1c1c;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    z-index: 5;
+}
+
+.inputContainer form .notes {
+    border-right: none !important;
+}
+
+.inputContainer form button.searchIcon {
+    border: 1px solid var(--searchbar-border-color) !important;
+    border-left: none !important;
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+    background: transparent;
+    z-index: 70;
+  }
+
+.inputContainer form button.searchIcon {
+  border: 1px solid var(--searchbar-border-color) !important;
+  border-left: none !important;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  background: transparent;
+}
+
+.inputContainer form button.searchIcon:hover {
+    background-color: var(--main-button-hover-color);
+    color: #fff;
+}
+
+.inputContainer form .searchIcon svg {
+    fill: var(--searchbar-icon-color);
+}
+
+  .inputContainer form .iconBtn svg {
+    fill: var(--searchbar-icon-color);
+  }
+  
+  .inputContainer form .iconBtn:hover svg {
+    fill: #fff;
+  }
+
+.inputContainer form button:hover {
+    background: #9499c2;
+}
+
+.inputContainer form .searchIcon {
+    border-left: none;
+    border-top: 2px solid #1c1c1c !important;
+    border-bottom: 2px solid #1c1c1c !important;
+}
+
+.inputContainer form .custom-file-upload {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: 2px solid #1c1c1c !important;
+    border-bottom: 2px solid #1c1c1c !important;
+    background: white;
+    height: 50px;
+    align-items: center;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.inputContainer form .custom-file-upload input[type="file"] {
+    display: none;
+}
+
+.inputContainer form .custom-file-upload:hover {
+    background: #9499c2;
+}
+
+/* General container setups */
+.container, .contentWrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Hide and show elements */
+.hideBlock {
+    opacity: 0;
+    height: 0px;
+    padding: 0;
+    overflow: hidden;
+    max-height: 0px;
+    margin: 0;
+}
+
+.displayBlock {
+    display: block;
+}
+
+/* Stretching elements */
+.stretchRoot {
+    height: 100vh;
+}
+
+.stretch {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.stretchChild {
+    flex: 1 1;
+    min-height: 0px;
+}
+
+/* Scrollbar styling */
+.scrollBar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scrollBar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.scrollBar::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.scrollBar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Header styling */
+header {
+    position: relative;
+    height: 20vh; /* Set to the same height as the video container */
+    margin-bottom: 0;
+    z-index: 1; /* Ensure z-index is lower than the nav */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    display: block;
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 100%;
+    filter: blur(0px) brightness(0.7);
+}
+
+header h1 {
+    margin: 0;
+    margin-bottom: 18px;
+}
+
+/* Logo */
+.logo {
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10px;
+    z-index: 2;
+    color:#f1f1f1;
+}
+
+.brand, .tagline {
+    font-size: 36px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 2;
+    color: #f1f1f1;
+}
+
+.tagline {
+    font-size: 16px;
+}
+
+.button {
+    padding: 8px 16px;
+    border: 1px solid var(--button-border-color);
+    background-color: transparent;
+    color: var(--button-text-color);
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .button:hover {
+    background-color: var(--button-hover-color);
+    color: #fff;
+  }
+
+  .noteButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .noteButton svg {
+    fill: var(--button-icon-color);
+    width: 20px;
+    height: 20px;
+  }
+  
+  .voiceButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+  }
+  
+  .voiceButton svg {
+    fill: var(--button-icon-color);
+    width: 20px;
+    height: 20px;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+  
+  .voiceButton.recording {
+    background-color: red; /* Indicates recording is active */
+    animation: none;
+  }
+  
+  .voiceButton:not(.recording):hover {
+    background-color: var(--button-hover-color);
+  }
+  
+/* Panel styling */
+nav {
+    position: relative;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px; /* adds padding inside the nav element */
+    border: 3px solid transparent; /* adds a border that occupies space but is invisible */
+    box-sizing: border-box; /* ensures padding and border are included in the width and height */
+
+}
+
+/* Styles for spacing elements inside <controls> */
+.controls {
+    display: flex; /* makes the children of <controls> lay out horizontally */
+    gap: 5px; /* creates 5px of space between each child element */
+    padding: 5px; /* optional: adds padding inside the controls container for spacing around the edges */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+
+nav ul li {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust the spacing between inline items as needed */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+nav ul li:not(.float-right) {
+    order: 2; /* Makes sure other elements are to the right */
+}
+
+nav .switch, nav .slider, nav .modelSlider {
+    margin: 0;
+    align-self: center;
+}
+
+.float-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+/* Toggle slider styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 22px;
+}
+
+.switch input {
+    display: flex;
+    align-items: center; /* Center the slider vertically */
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2ab934;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(28px);
+}
+
+.slider:after, .modelSlider:after {
+    content: 'OFF';
+    color: white;
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    right: 0%;
+    font-size: 10px;
+    font-family: Verdana, sans-serif;
+}
+
+input:checked + .slider:after, input:checked + .modelSlider:after {
+    content: 'ON';
+    transform: translate(50%, -50%);
+    left: 0%;
+    right: auto;
+}
+
+.floating-input-container {
+    position: fixed;
+    bottom: 60px; /* This value should be greater than the height of your footer */
+    left: 0;
+    right: 0;
+    max-width: 900px; /* Adjust as needed */
+    margin: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1010; /* Lower than the footer */
+}
+
+#apiform {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#apiform #instructions {
+    flex-grow: 1;
+    margin: 0 10px;
+    padding: 8px 16px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+#apiform button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#apiform button:hover {
+    background-color: #0056b3;
+}
+
+/* Model slider variations */
+.modelSlider {
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.modelSlider:before {
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .modelSlider {
+    background-color: #2ab934;
+}
+
+input:focus + .modelSlider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .modelSlider:before {
+    transform: translateX(28px);
+}
+
+.modelSlider:after {
+    content: 'ELF';
+}
+
+input:checked + .modelSlider:after {
+    content: 'OAI';
+}
+
+/**missing elements **/
+
+.scrollBar::-webkit-scrollbar {
+    width: 4px;
+ }
+ 
+ .scrollBar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+ }
+ 
+ .scrollBar::-webkit-scrollbar-thumb {
+    background: #888;
+ }
+ 
+ .scrollBar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+ }
+
+ .stretchRoot {
+    height: 100vh;
+ }
+ 
+ .stretch {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+ }
+ 
+ .stretchChild {
+    flex: 1 1;
+    min-height: 0px;
+ }
+ 
+ .chatIOContainer {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+ }
+ 
+ .chatWindow {
+    min-height: 300px;
+    overflow-y: auto;
+    padding: 10px 0;
+    border-radius: 10px;
+    flex-grow: 1;
+    padding-right: 16px;
+ }
+ .PopOutBox{
+    display: none;
+    background: rgba(21, 18, 18, 0.78);
+    font-weight: 700;
+    position: absolute;
+    z-index: 0;
+    bottom: 100px;
+    width: 350px;
+    height: 150px;
+    align-content: center;
+    text-align: center;
+  
+    button{
+      position: relative;
+      top: 20px;
+      font-weight: 700;
+    }
+  }
+  
+  .loaderDiv {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+  }
+  .loader {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    margin: auto;
+    background-image: linear-gradient(#fff 16px, transparent 0),
+    linear-gradient(#ff3d00 16px, transparent 0),
+    linear-gradient(#ff3d00 16px, transparent 0),
+    linear-gradient(#fff 16px, transparent 0);
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: left top, left bottom, right top, right bottom;
+    animation: rotate 1s linear infinite;
+  }
+  @keyframes rotate {
+    0% {
+      width: 64px;
+      height: 64px;
+      transform: rotate(0deg);
+    }
+    50% {
+      width: 30px;
+      height: 30px;
+      transform: rotate(180deg);
+    }
+    100% {
+      width: 64px;
+      height: 64px;
+      transform: rotate(360deg);
+    }
+  }
+ .resp {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 79%;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    white-space: pre-line;
+    text-align: left !important;
+  }
+ .responseDiv {
+    width: 100%;
+    border-bottom: 1px solid rgb(86 86 86);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    background: #007bff;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+    color: black;
+ }
+ 
+ .responseDiv.userChat {
+    width: fit-content;
+    border-color: aqua;
+    padding-right: 8px;
+    margin-top: 24px;
+ }
+ 
+ .botChatHeader {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+ }
+ 
+ .PopOutBox{
+    display: none;
+    background: rgba(21, 18, 18, 0.78);
+    font-weight: 700;
+    position: absolute;
+    z-index: 0;
+    bottom: 100px;
+    width: 350px;
+    height: 150px;
+    align-content: center;
+    text-align: center;
+  
+    button{
+      position: relative;
+      top: 20px;
+      font-weight: 700;
+    }
+  }
+  @media (max-width: 600px) {
+    .floating-input-container {
+        padding: 5px 10px;
+    }
+    
+    #apiform #instructions {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    #apiform button {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}
+#showVoiceRecordingDiv {
+    padding-top: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    button {
+      margin: auto;
+      padding: 10px;
+      font-weight: 400;
+      font-size: 18px;
+      font-family: "Open Sans", sans-serif;
+      background: #1272d3;
+      color: white;
+      border: none;
+    }
+#notesContainer {
+        width: 80%;
+        margin-left: 10%;
+      }    
+#notes {
+        height: 200px;
+      }
+      
+footer {
+    text-align: center; /* Centers the text within the footer */
+    color: black; /* Sets the text color to silver */
+    font-size: 0.8em; /* Makes the font size smaller; adjust as needed */
+    padding: 10px 0; /* Adds padding to the top and bottom */
+    width: 100%; /* Ensures the footer spans the full width of its container */
+    box-sizing: border-box; /* Makes sure padding is included in the width */
+    position: fixed; /* Fix position to the bottom */
+    bottom: 0; /* Align to the bottom */
+    left: 0; /* Align to the left */
+    background: #fff; /* Sets a background color if needed, assuming white for contrast */
+    z-index: 1000; /* Ensures the footer stays above other content */
+    height: 40px;
+}
+  
